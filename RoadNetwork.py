@@ -1,7 +1,7 @@
 from random import sample, randrange
 from itertools import product
 import math
-from .constants import MAXIMUM_ROAD_CAPACITY, MAXIMUM_TRAVEL_DISTANCE, AVERAGE_VELOCITY, AVERAGE_CONSUMPTION, CHARGER_CAPACITY, CHARGER_SPEED, CHARGER_TIME
+from constants import MAXIMUM_ROAD_CAPACITY, MAXIMUM_TRAVEL_DISTANCE, AVERAGE_VELOCITY, AVERAGE_CONSUMPTION, CHARGER_CAPACITY, CHARGER_SPEED, CHARGER_TIME
 import numpy as np
 
 class RoadNetwork():
@@ -14,6 +14,13 @@ class RoadNetwork():
         :param `int` n: The number of nodes
         :param `int` m: The number of edges
         """
+
+        if n <= 0:
+            raise ValueError('Node number must be positive')
+        if m <= 0:
+            raise ValueError('Edge number must be positive')
+        if m >= n**2:
+            raise ValueError('Edge number must be less than the square of node number')
 
         self.n = n
         self.m = m
