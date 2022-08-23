@@ -19,7 +19,7 @@ class RoadNetwork():
             raise ValueError('Node number must be positive')
         if m <= 0:
             raise ValueError('Edge number must be positive')
-        if m >= n**2:
+        if m > n**2:
             raise ValueError('Edge number must be less than the square of node number')
 
         self.n = n
